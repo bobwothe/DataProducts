@@ -1,14 +1,11 @@
 library(shiny)
 
-# Rely on the 'WorldPhones' dataset in the datasets
-
-# Define the overall UI
+# UI
 shinyUI(
   
-  # Use a fluid Bootstrap layout
+  # Fluid Bootstrap layout
   fluidPage(    
     
-    # Give the page a title
     titlePanel("Windchill Calculator"),
     
     # Generate a row with a sidebar
@@ -19,11 +16,11 @@ shinyUI(
         sliderInput("wind",
                     "Enter windspeed in miles per hour:",
                     min = 0,
-                    max = 50,
-                    value = 5),
+                    max = 80,
+                    value = 10),
         
-        numericInput("temp", "Enter temperature in Fahrenheit", 25,
-                     min = -25, max = 50, step = 5),
+        numericInput("temp", "Enter temperature in Fahrenheit", 10,
+                     min = -25, max = 50, step = 10),
         
         submitButton("Submit")
         

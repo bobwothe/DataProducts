@@ -3,8 +3,6 @@ library(shiny)
 # Define a server for the Shiny app
 shinyServer(function(input, output) {
   
-  # Fill in the spot we created for a plot
-  
   
   output$tempplot <- renderPlot({
     wind2 <- input$wind^0.16 #wind variable in new formula
@@ -17,7 +15,7 @@ shinyServer(function(input, output) {
     # Render a barplot
     barplot(temps, 
             main="Windchill by Calculation Method",
-            names.arg = c("2001 Onward","pre-2001"),
+            names.arg = c("Since 2001","Before 2001"),
             ylab="Apparent Windchill",
             ylim = c(-100,75))
     abline (h = 0)
@@ -38,17 +36,14 @@ shinyServer(function(input, output) {
     Oldwindchill <- round(Oldwindchill,digits = 2)
     temps <- c(Newwindchill,Oldwindchill)
     
-    paste("Post-2001 Windchill is: ", temps[1], " and Pre-2001 is: ", temps[2])
+    paste("Windchill based on formula since 2001 is: ", temps[1], " and windchill based on formula before 2001 is: ", temps[2])
   })
   
   
-  output$text5 <- renderText({"From Wikipedia Windchill article: In November 
-    2001 Canada, U.S. and U.K. 
-    implemented a new wind chill index developed by 
-    scientists and medical experts on the Joint Action
-    Group for Temperature Indices (JAG/TI). This
-    model replaced the original calculation that was
-    developed in the 1940s"
+  output$text5 <- renderText({"This app explained via Wikipedia: In November 
+    2001, Canada, U.S. and the U.K. implemented a new wind chill index developed by scientists and medical experts on the Joint Action
+    Group for Temperature Indices (JAG/TI). This model replaced the original calculation that was
+    developed in the 1940s."
   })
   
   output$text3 <- renderText({paste("code at: ",
