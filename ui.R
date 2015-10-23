@@ -13,6 +13,8 @@ shinyUI(
       
       # Define the sidebar with one input
       sidebarPanel(
+
+        
         sliderInput("wind",
                     "Enter windspeed in miles per hour:",
                     min = 0,

@@ -39,11 +39,10 @@ shinyServer(function(input, output) {
     paste("Windchill based on formula since 2001 is: ", temps[1], " and windchill based on formula before 2001 is: ", temps[2])
   })
   
-  
   output$text5 <- renderText({"This app explained via Wikipedia: In November 
     2001, Canada, U.S. and the U.K. implemented a new wind chill index developed by scientists and medical experts on the Joint Action
     Group for Temperature Indices (JAG/TI). This model replaced the original calculation that was
-    developed in the 1940s."
+    developed in the 1940s Adjust the slider and temperature input to get the predicted windchill by both the post- and pre-2001 formulas."
   })
   
   output$text3 <- renderText({paste("code at: ",
